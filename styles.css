@@ -153,6 +153,20 @@
   background-color: var(--clr-blue2);
 }
 
+#show section {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   flex-direction: row;
+}
+
+#show section div {
+    height: 26rem;
+    width: 20rem;
+    border: 1px solid var(--clr-b2);
+    border-radius: 2rem;
+}
+
 
 
 

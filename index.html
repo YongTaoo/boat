@@ -5,11 +5,13 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>物流流程</title>
 		<link rel="stylesheet" href="styles.css" />
+		<script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+		<script src="script.js" defer></script>
 	</head>
-	<body>
+	<body id = "app">
 		<header>
 			<div >
-				<h1 id="title">boat</h1>
+				<h1 id="title">{{ message }}</h1>
 			</div>
 		</header>
 
@@ -64,86 +66,97 @@
                 </div>
 				<div class="ocean"></div>
 			</section>
+		<div id="show">
+				<section v-if="chapter == 0">
+					<button disabled>上一条</button>
+					<div>
+						<p>客户从网上下订单，确定目的地</p>
+						<ul>
+							<li>优惠卷提醒</li>
+							<li>企业qq</li>
+						</ul>
+					</div>
+					<div>
+					    <p>
+							大家好啊
+						</p>
+					</div>
+					<div>
+					    <p>
+							大家好啊
+						</p>
+					</div>		
+					<button @click="nextStep">下一条</button>
+				</section>
 
-			<section>
-			    <button disabled>上一条</button>
-                <div>
-                    <p>客户从网上下订单，确定目的地</p>
-                    <ul>
-                        <li>优惠卷提醒</li>
-                        <li>企业qq</li>
-                    </ul>
-                </div>
-				<button>下一条</button>
-			</section>
+				<section v-else-if="chapter == 1">
+					<button @click="foreStep">上一条</button>
+					<div>
+						<p>客服确认订单价格，向船家提供订单</p>
+						<ul>
+							<li>企业qq</li>
+							<li>一链通系统</li>
+							<li>船东系统</li>
+						</ul>
+					</div>
+					<button @click="nextStep">下一条</button>
+				</section>
 
-            <section>
-			    <button>上一条</button>
-                <div>
-                    <p>客服确认订单价格，向船家提供订单</p>
-                    <ul>
-                        <li>企业qq</li>
-                        <li>一链通系统</li>
-                        <li>船东系统</li>
-                    </ul>
-                </div>
-				<button>下一条</button>
-			</section>
+				<section v-else-if="chapter == 2">
+					<button @click="foreStep">上一条</button>
+					<div>
+						<p>操作最后确定订单</p>
+						<ul>
+							<li>企业qq</li>
+						</ul>
+					</div>
+					<button @click="nextStep">下一条</button>
+				</section>
 
-            <section>
-			    <button>上一条</button>
-                <div>
-                    <p>操作最后确定订单</p>
-                    <ul>
-                        <li>企业qq</li>
-                    </ul>
-                </div>
-				<button>下一条</button>
-			</section>
+				<section v-else-if="chapter == 3">
+					<button @click="foreStep">上一条</button>
+					<div>
+						<p>卡车送货</p>
+						<ul>
+							<li>运单号</li>
+							<li>货柜箱照片</li>
+						</ul>
+					</div>
+					<button @click="nextStep">下一条</button>
+				</section>
 
-            <section>
-			    <button>上一条</button>
-                <div>
-                    <p>卡车送货</p>
-                    <ul>
-                        <li>运单号</li>
-                        <li>货柜箱照片</li>
-                    </ul>
-                </div>
-				<button>下一条</button>
-			</section>
+				<section v-else-if="chapter == 4">
+					<button @click="foreStep">上一条</button>
+					<div>
+						<p>放在码头，准备上船</p>
+					</div>
+					<button @click="nextStep">下一条</button>
+				</section>
 
-            <section>
-			    <button>上一条</button>
-                <div>
-                    <p>放在码头，准备上船</p>
-                </div>
-				<button>下一条</button>
-			</section>
+				<section v-else-if="chapter == 5">
+					<button @click="foreStep">上一条</button>
+					<div>
+						<p>航行中</p>
+					</div>
+					<button @click="nextStep">下一条</button>
+				</section>
 
-            <section>
-			    <button>上一条</button>
-                <div>
-                    <p>航行中</p>
-                </div>
-				<button>下一条</button>
-			</section>
+				<section v-else-if="chapter == 6">
+					<button @click="foreStep">上一条</button>
+					<div>
+						<p>放在码头，等付尾款提货</p>
+					</div>
+					<button @click="nextStep">下一条</button>
+				</section>
 
-            <section>
-			    <button>上一条</button>
-                <div>
-                    <p>放在码头，等付尾款提货</p>
-                </div>
-				<button>下一条</button>
-			</section>
-
-            <section>
-			    <button>上一条</button>
-                <div>
-                    <p>送到仓库</p>
-                </div>
-				<button disabled>下一条</button>
-			</section>
+				<section v-else-if="chapter == 7">
+					<button @click="foreStep">上一条</button>
+					<div>
+						<p>送到仓库</p>
+					</div>
+					<button disabled>下一条</button>
+				</section>
+			</div>
 		</div>
 	</body>
 </html>
