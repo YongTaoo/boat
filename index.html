@@ -1,17 +1,21 @@
 <!DOCTYPE html>
-<html lang="cn">
+<html lang="cn" id = "app">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>物流流程</title>
-		<link rel="stylesheet" href="styles.css" />
+		<link id="theme" rel="stylesheet" href="styles2.css" />
 		<script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
 		<script src="script.js" defer></script>
 	</head>
-	<body id = "app">
+	<body>
 		<header>
 			<div >
 				<h1 id="title">{{ message }}</h1>
+				<button @click="changeTheme" style="position: absolute ; right: 5rem;
+				                                    height: 4rem; width: 4rem; border-radius: 50%;
+													border-width: 0px; color: white; background-color: aqua;
+				">样式改变</button>
 			</div>
 		</header>
 

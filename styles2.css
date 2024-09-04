@@ -1,0 +1,246 @@
+:root {
+    /* BLACK */
+    --clr-b1: #299ee3;
+    --clr-b2: #1e50c3;
+    --clr-b3: #2630fb;
+    --clr-b4: #113fe3;
+    --clr-b5: #3137e4;
+  
+    /* WHITE */
+    --clr-w1: #e7a242;
+    --clr-w2: #dd8518;
+    --clr-w3: #ea6e27;
+    --clr-w4: #eb910a;
+  
+    /* BLUE */
+    --clr-blue1: #49cfe66c;
+    --clr-blue2: #2897e734;
+  
+    /* FONTS */
+  }
+
+ * {
+    box-sizing: border-box;
+}
+  
+
+ body {
+    margin: 0;
+ } 
+
+ section {
+    margin: 1rem;
+ }
+
+ .box {
+    height: 1rem;
+    width: 1rem;
+    background-color: var(--clr-b4);
+ }
+
+ .container {
+    height: 2.6rem;
+    width: 4rem;
+    background-color: var(--clr-b5);
+    margin-top: 0.5rem;
+ }
+
+ .long {
+    width: 8rem;
+    background-color: var(--clr-blue2);
+ }
+
+ .hq {
+    height: 2.9rem;
+    background-color: var(--clr-w4);
+ }
+
+ .truck-container {
+  display: flex;
+  align-items: flex-end;
+}
+
+.truck-cab {
+  width: 3rem;
+  height: 2.9rem;
+  background-color: var(--clr-w4);
+  position: relative;
+}
+
+/* sloped part of the cab */
+
+.truck-cab::before {
+  content: '';
+  position: absolute;
+  top: -1.5rem;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-right: 3rem solid transparent;
+  border-top: 2.6rem solid white;
+}
+
+.truck-cargo {
+  width: 8rem;
+  height: 0.5rem;
+  background-color: var(--clr-blue2);
+}
+
+/* wheels */
+.wheel {
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--clr-b5);
+  border-radius: 50%;
+  position: relative;
+  margin-right: 2rem;;
+  display: inline-block;
+}
+
+.wheel:first-of-type {
+  margin-left: 1.2rem;
+}
+
+
+.pier-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 10rem;
+  position: relative;
+}
+
+/* Pier platform */
+.pier-platform {
+  width: 15rem;
+  height: 1.5rem;
+  background-color: var(--clr-b5);
+  position: absolute;
+  bottom: 0;
+}
+
+/* Pier pillars */
+.pier-pillar {
+  width: 1rem;
+  height: 4rem;
+  background-color: var(--clr-w4);
+  margin: 1.5rem;
+  bottom: 1.5rem;
+}
+
+
+.waterline {
+  width: 100%;
+  height: 0.5rem;
+  background-color: var(--clr-blue1);
+  position: absolute;
+  bottom: 0;
+}
+
+.cargo-ship {
+  width: 40rem;
+  height: 3rem;
+  background-color: var(--clr-b4);
+  margin-top: 6rem;
+  border-radius: 6rem;
+  
+}
+
+.ocean {
+  width: 100%;
+  height: 0.5rem;
+  background-color: var(--clr-blue2);
+}
+
+#show section {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   flex-direction: row;
+}
+
+#show section div {
+    height: 26rem;
+    width: 20rem;
+    border: 1px solid var(--clr-b2);
+    border-radius: 2rem;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeIn 0.5s forwards;
+}
+
+#show section div:nth-child(3) {
+  animation-delay: 1s;
+}
+
+#show section div:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+@keyframes fadeIn {
+  to {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+
+/* From www.lingdaima.com */
+#show section button {
+  --color: var(--clr-b3);
+  --color2: var(--clr-w3);
+  height: 3em;
+  width: 3em;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 0.1px solid rgba(255,255,255,0.1);
+  transition: .5s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  font-weight: 300;
+  font-size: 17px;
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  text-transform: uppercase;
+  color: var(--color);
+ }
+ 
+ #show section button::before {
+  content: '';
+  display: block;
+  height: 110%;
+  width: 310%;
+  transform: translate(0, -50%);
+  position: absolute;
+  top: 50%;
+  left: -5%;
+  z-index: -1;
+  transition: .7s;
+  background: -moz-linear-gradient(45deg, var(--color2) 33%, var(--color) 66%);
+  background: -webkit-linear-gradient(45deg, var(--color2) 33%, var(--color) 66%);
+  background: linear-gradient(45deg, var(--color2) 33%, var(--color) 66%);
+ }
+
+ #show section button.next::before {
+    background: linear-gradient(135deg, var(--color) 33%, var(--color2) 66%);
+    left: -200%;
+ }
+ 
+ #show section button:hover::before {
+  left: -200%;
+ }
+
+ #show section button:hover.next::before {
+   left: -5%;
+ }
+ 
+ #show section button:hover {
+  color: var(--color2);
+ }
+ 
+ #show section button:active {
+  transform: scale(.98);
+  filter: brightness(.8);
+ }
+
+
