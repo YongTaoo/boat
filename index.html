@@ -62,99 +62,202 @@
 			</section>
 			<section>
 				<h2>货船</h2>
-                <div class="cargo-ship">
+                <div class="cargo-ship" :style="{marginLeft: 5*chapter + 'rem'}" >
                 </div>
 				<div class="ocean"></div>
 			</section>
 		<div id="show">
 				<section v-if="chapter == 0">
-					<button disabled>上一条</button>
+					<button disabled><</button>
 					<div>
 						<p>客户从网上下订单，确定目的地</p>
-						<ul>
-							<li>优惠卷提醒</li>
-							<li>企业qq</li>
+						<img src="1.PNG">
+					</div>
+					<div>
+						<h3>商务提供服务</h3>
+					    <ul>
+							<li>抵扣优惠卷</li>
+							<li>提供价格</li>
+							<li>企业qq，电话与客户进行联系</li>
 						</ul>
 					</div>
 					<div>
 					    <p>
-							大家好啊
+							您好	
 						</p>
-					</div>
-					<div>
-					    <p>
-							大家好啊
+						<p>
+							我是一链通的客服，请问这样的报价您满意吗
 						</p>
 					</div>		
-					<button @click="nextStep">下一条</button>
+					<button @click="nextStep" class="next">></button>
 				</section>
 
 				<section v-else-if="chapter == 1">
-					<button @click="foreStep">上一条</button>
+					<button @click="foreStep"><</button>
 					<div>
 						<p>客服确认订单价格，向船家提供订单</p>
-						<ul>
-							<li>企业qq</li>
-							<li>一链通系统</li>
-							<li>船东系统</li>
+						<img src="1.PNG">
+					</div>
+					<div>
+						<h3>客服提供服务</h3>
+					    <ul>
+							<li>企业qq，电话向客户交代需要准备的基本事项</li>
+							<li>确认核实客户需要运送的物品和个人资料基本信息</li>
+							<li>在一链通系统转交资料到船东系统</li>
 						</ul>
 					</div>
-					<button @click="nextStep">下一条</button>
+					<div>
+						<p>尊敬的客户:</p>
+						<p>请确认您的货物满足以下。。。。的条件</p>
+						<p>如果确认无误，我方公司将以这样的价格向某某公司进行下单</p>
+						<p>请记住在以下日期，进行以下步骤</p>
+						<p>
+							<ol>
+								<li>...</li>
+								<li>...</li>
+								<li>...</li>
+							</ol>
+						</p>
+						<p>谢谢配合</p>
+					</div>		
+					<button @click="nextStep" class="next">></button>
 				</section>
 
 				<section v-else-if="chapter == 2">
-					<button @click="foreStep">上一条</button>
+					<button @click="foreStep"><</button>
 					<div>
-						<p>操作最后确定订单</p>
+						<p>在船东公司网站最后确定订单</p>
+						<img src="1.PNG">
+					</div>
+					<div>
+						<h3>操作进行服务</h3>
 						<ul>
-							<li>企业qq</li>
+							<li>企业qq向船东公司确认信息</li>
 						</ul>
 					</div>
-					<button @click="nextStep">下一条</button>
+					<div>
+						<p>你好</p>
+						<p>我司已在贵公司下单了一笔从...到...的航线</p>
+						<p>接下来希望合作愉快</p>
+					</div>
+					<button @click="nextStep" class="next">></button>
 				</section>
 
 				<section v-else-if="chapter == 3">
-					<button @click="foreStep">上一条</button>
+					<button @click="foreStep"><</button>
 					<div>
 						<p>卡车送货</p>
+						<img src="1.PNG">
+						<img src="2.PNG">
+						<img src="3.PNG">
+					</div>
+					<div>
+						<h3>操作进行服务</h3>
 						<ul>
-							<li>运单号</li>
-							<li>货柜箱照片</li>
+							<li>协调好客户和司机双方的取送货时间</li>
+							<li>突发情况处理</li>
+							<li>确认客户是否上传了货柜箱照片，运单号</li>
+							<li>在系统上将货柜箱子照片转交船公司</li>
+							<li>确认商品是否送达</li>
 						</ul>
 					</div>
-					<button @click="nextStep">下一条</button>
+					<div>
+						<p>是的，车队这边除了一点交通状况，可能要推迟十几分钟，请您耐心等待</p>
+					</div>
+					<button @click="nextStep" class="next">></button>
 				</section>
 
 				<section v-else-if="chapter == 4">
-					<button @click="foreStep">上一条</button>
+					<button @click="foreStep"><</button>
 					<div>
 						<p>放在码头，准备上船</p>
+						<img src="2.PNG">
+						<img src="4.PNG" width="100%">
 					</div>
-					<button @click="nextStep">下一条</button>
+					<div>
+					  <h3>客服进行服务</h3>
+					  <ul>
+						<li>
+							对突发情况进行处理
+						</li>
+						<li>
+							与操作了解相应情况，对客户的问题进行回复
+						</li>
+					  </ul> 
+					</div>
+					<div>
+						<p>
+							客户：哎呀，我的货物怎么还没有发，是出现了什么问题吗
+						</p>
+						<p>
+							客服: 不好意思啊，因为某某地方的某某情况，您的航班可能要推迟一天，如再有特殊情况，或者商品发货，
+							我们会在第一时间通知您
+						</p>
+					</div>
+					<button @click="nextStep" class="next">></button>
 				</section>
 
 				<section v-else-if="chapter == 5">
-					<button @click="foreStep">上一条</button>
+					<button @click="foreStep"><</button>
 					<div>
 						<p>航行中</p>
+						<img src="2.PNG">
+						<img src="5.PNG" width="100%">
 					</div>
-					<button @click="nextStep">下一条</button>
+					<div>
+						<h3>客服进行服务</h3>
+						<ul>
+							<li>预计航班到达日期</li>
+							<li>电话，企业qq特殊情况处理</li>
+						</ul>
+					</div>
+					<div>
+						<p>客户: 因为...的缘故，到岸能帮我增加这些服务吗，请问</p>
+						<p>客服: 好的，没问题</p>
+					</div>
+					<button @click="nextStep" class="next">></button>
 				</section>
 
 				<section v-else-if="chapter == 6">
-					<button @click="foreStep">上一条</button>
+					<button @click="foreStep"><</button>
 					<div>
-						<p>放在码头，等付尾款提货</p>
+						<p>货物放在码头，等付尾款提货</p>
+						<img src="2.PNG">
+						<img src="4.PNG" width="100%">
 					</div>
-					<button @click="nextStep">下一条</button>
+					<div>
+						<h3>客服进行服务</h3>
+						<ul>
+							<li>确认尾款的收付</li>
+							<li>确认货物的转交</li>
+							<li>若货物出现破损，需要联系操作报保险</li>
+						</ul>
+					</div>
+					<div>
+						<p>您好，尊敬的客户，我们的服务即将到达尾声，请将尾款转交</p>
+					</div>
+					<button @click="nextStep" class="next">></button>
 				</section>
 
 				<section v-else-if="chapter == 7">
-					<button @click="foreStep">上一条</button>
+					<button @click="foreStep"><</button>
 					<div>
-						<p>送到仓库</p>
+						<p>将货物送到仓库</p>
+						<img src="3.PNG">
+						<img src="2.PNG">
+						<img src="1.PNG">
 					</div>
-					<button disabled>下一条</button>
+					<div>
+						<h3>操作提供服务</h3>
+						<ul>
+							<li>协调客户和车队的时间</li>
+							<li>确认货物送达客户指定地点</li>
+						</ul>
+					</div>
+					<div>
+						<p>感谢大家的配合，希望我司以后能再为您们提供服务</p>
+					</div>
+					<button disabled class="next">></button>
 				</section>
 			</div>
 		</div>

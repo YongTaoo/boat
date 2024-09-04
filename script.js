@@ -2,7 +2,7 @@ const { createApp, ref } = Vue
 
   createApp({
     setup() {
-      const message = ref('Hello vue!');
+      const message = ref('内贸海运流程(想象)');
       const chapter = ref(0);
       function nextStep() {
           if(chapter.value < 8) {

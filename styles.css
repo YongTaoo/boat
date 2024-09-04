@@ -145,6 +145,7 @@
   background-color: var(--clr-b4);
   margin-top: 6rem;
   border-radius: 6rem;
+  
 }
 
 .ocean {
@@ -165,9 +166,84 @@
     width: 20rem;
     border: 1px solid var(--clr-b2);
     border-radius: 2rem;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeIn 0.5s forwards;
 }
 
+#show section div:nth-child(3) {
+  animation-delay: 1s;
+}
 
+#show section div:nth-child(4) {
+  animation-delay: 1.5s;
+}
+
+@keyframes fadeIn {
+  to {
+      opacity: 1;
+      transform: scale(1);
+  }
+}
+
+/* From www.lingdaima.com */
+#show section button {
+  --color: var(--clr-b3);
+  --color2: var(--clr-w3);
+  height: 3em;
+  width: 3em;
+  background-color: transparent;
+  border-radius: 10px;
+  border: 0.1px solid rgba(255,255,255,0.1);
+  transition: .5s ease;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  font-weight: 300;
+  font-size: 17px;
+  font-family: 'Roboto', 'Segoe UI', sans-serif;
+  text-transform: uppercase;
+  color: var(--color);
+ }
+ 
+ #show section button::before {
+  content: '';
+  display: block;
+  height: 110%;
+  width: 310%;
+  transform: translate(0, -50%);
+  position: absolute;
+  top: 50%;
+  left: -5%;
+  z-index: -1;
+  transition: .7s;
+  background: -moz-linear-gradient(45deg, var(--color2) 33%, var(--color) 66%);
+  background: -webkit-linear-gradient(45deg, var(--color2) 33%, var(--color) 66%);
+  background: linear-gradient(45deg, var(--color2) 33%, var(--color) 66%);
+ }
+
+ #show section button.next::before {
+    background: linear-gradient(135deg, var(--color) 33%, var(--color2) 66%);
+    left: -200%;
+ }
+ 
+ #show section button:hover::before {
+  left: -200%;
+ }
+
+ #show section button:hover.next::before {
+   left: -5%;
+ }
+ 
+ #show section button:hover {
+  color: var(--color2);
+ }
+ 
+ #show section button:active {
+  transform: scale(.98);
+  filter: brightness(.8);
+ }
 
 
 
